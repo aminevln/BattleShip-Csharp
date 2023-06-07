@@ -121,5 +121,54 @@ namespace BattagliaNavale {
             do n = random.Next(10, 99); while (thereIS(n, ctrpc));
             ctrpc[8] = n;
         }
+        private bool thereIS(int n1, int[] ctrl)
+        {
+            foreach (int elemento in ctrl) if (elemento == n1) return true;
+            return false;
+        }
+        private void prepareField()
+        {
+            lbl1.Text = "User Boats = " + cntUsr; lbl2.Text = "PC Boats = " + cntPC;
+            lbl1.Location = new Point(20, 20); lbl2.Location = new Point(450, 20);
+            lbl1.ForeColor = Color.White; lbl2.ForeColor = Color.White;
+            Controls.Add(lbl1); Controls.Add(lbl2);
+            int x = 20, y = 50, l = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                l = i; y = 50;
+                for (int j = 0; j < 10; j++)
+                {
+                    Button but = new Button();
+                    but.Location = new Point(x, y); but.Size = new Size(38, 38);
+                    but.BackColor = Color.FromArgb(62, 62, 62); but.ForeColor = Color.White;
+                    but.FlatStyle = FlatStyle.Popup; but.Name = "User" + l.ToString();
+                    if (l < 10) but.Name = "PC0" + l.ToString();
+                    l += 10; Controls.Add(but); y += 38;
+                }
+                x += 38;
+            }
+            x = 450; l = 99;
+            for (int i = 0; i < 10; i++)
+            {
+                l = 99 - i; y = 50;
+                for (int j = 0; j < 10; j++)
+                {
+                    Button but = new Button();
+                    but.Location = new Point(x, y);
+                    but.Size = new Size(38, 38);
+                    but.BackColor = Color.FromArgb(62, 62, 62);
+                    but.ForeColor = Color.White;
+                    but.FlatStyle = FlatStyle.Popup;
+                    but.Name = "PC" + l.ToString();
+                    but.Cursor = Cursors.Hand;
+                    if (l < 10)
+                        but.Name = "PC0" + l.ToString();
+                    //but.Click += new EventHandler(debugName);
+                    l -= 10; Controls.Add(but); y += 38;
+                }
+                x += 38;
+            }
+            foreach (Button btn in Controls.OfType<Button>().Where(b => b.Name.Contains("PC"))) btn.Click += new EventHandler(game);
+        }
     }
 }
