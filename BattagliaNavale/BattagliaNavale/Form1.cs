@@ -1,38 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BattagliaNavale
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace BattagliaNavale {
+    public partial class Form1 : Form {
+        Label lbl1 = new Label(), lbl2 = new Label();
+        int cntPC = 9, cntUsr = 9, b = 0;
+        int[] ctrpc = new int[9], ax = new int[99];
+        public Form1() {
             InitializeComponent();
         }
-        public int campo = 10;
-        int[,] a, m; //matrice giocatore | matrice PC
-        int naviPC=0, naviUser=0, navi1=1, navi3=1, navi5=1; //totale residuo blocchi di navi da affondare
-        Button[,] btnUser; //matrice di bottoni
-        Label[] lblHeaders;
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            a = new int[campo, campo];
-            naviPC = (navi1 * 1) + (navi3 * 3) + (navi5 * 5); 
-            naviUser= (navi1 * 1) + (navi3 * 3) + (navi5 * 5);
-
-            btnUser = new Button[campo, campo];
-            lblHeaders = new Label[2];
-
-            locateNavi(m);
-            locateNavi(a);
-            generateField();
+        private void Form1_Load(object sender, EventArgs e) {
+            for (int i = 0; i < ax.Length; ++i)
+                ax[i] = -1;
+            prepareField(); setBoats(null, e);
         }
         private void generateField()
         {
