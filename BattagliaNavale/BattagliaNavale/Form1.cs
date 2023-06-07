@@ -170,5 +170,32 @@ namespace BattagliaNavale {
             }
             foreach (Button btn in Controls.OfType<Button>().Where(b => b.Name.Contains("PC"))) btn.Click += new EventHandler(game);
         }
+        private void game(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            if (thereIS(Convert.ToInt16(button.Name.Substring(2, 2)), ctrpc))
+            {
+                cntPC--;
+                button.BackColor = Color.FromArgb(255, 255, 204);
+                lbl2.Text = "PC Boats = " + cntPC;
+            }
+            else button.BackColor = Color.FromArgb(32, 32, 32);
+            Random rnd = new Random(); int n;
+            do n = rnd.Next(0, 99); while (thereIS(n, ax));
+            ax[b] = n; b++;
+            foreach (var btn in Controls.OfType<Button>().Where(b => b.Name.Contains("User")))
+            {
+                if (btn.Name.Substring(4, 2) == n.ToString())
+                    if (btn.BackColor != Color.FromArgb(62, 62, 62))
+                    {
+                        cntUsr--;
+                        btn.BackColor = Color.FromArgb(255, 255, 204);
+                        lbl1.Text = "User Boats = " + cntUsr;
+                    }
+                    else btn.BackColor = Color.FromArgb(32, 32, 32);
+            }
+            if (cntPC == 0) MessageBox.Show("HAI VINTO");
+            else if (cntUsr == 0) MessageBox.Show("HAI PERSO");
+        }
     }
 }
