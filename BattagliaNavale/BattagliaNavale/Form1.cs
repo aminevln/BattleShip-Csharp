@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace BattagliaNavale {
     public partial class Form1 : Form {
+        Random random = new Random();
         Label lbl1 = new Label(), lbl2 = new Label();
         int cntPC = 9, cntUsr = 9, b = 0;
         int[] ctrpc = new int[9], ax = new int[99];
@@ -17,68 +18,71 @@ namespace BattagliaNavale {
                 ax[i] = -1;
             prepareField(); setBoats(null, e);
         }
-        private void generateField()
+        private void setBoats(object sender, EventArgs e) {
+            setUserBoats(); setPCBoats();
+        }
+        private void setUserBoats()
         {
-            Button btn; Label lbl;
-            int x=0, y=0;
-
-            /*campo pc*/
-            lbl = new Label();
-            lbl.Name = "LblIntPc";
-            lbl.Text = naviPC.ToString() + " Navi residue PC";
-            lbl.BackColor = Color.Gainsboro;
-            lbl.Location = new Point(20, 20);
-            lblHeaders[0] = lbl;
-            for(int i=0; i<campo; i++)
+            foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("User")))
+                button.BackColor = Color.FromArgb(62, 62, 62);
+            int[] ctrl = new int[8];
+            int n2 = random.Next(10, 59);
+            foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("User")))
             {
-                for(int j=0; j<campo; i++)
+                if (button.Name.Contains(n2.ToString()))
                 {
-                    m[i, j] = btn;
+                    button.BackColor = Color.FromArgb(102, 102, 153);
+                    ctrl[0] = n2;
+                }
+                if (button.Name.Contains((n2 + 10).ToString()))
+                {
+                    button.BackColor = Color.FromArgb(102, 102, 153);
+                    ctrl[1] = n2 + 10;
+                }
+                if (button.Name.Contains((n2 + 20).ToString()))
+                {
+                    button.BackColor = Color.FromArgb(102, 102, 153);
+                    ctrl[2] = n2 + 20;
+                }
+                if (button.Name.Contains((n2 + 30).ToString()))
+                {
+                    button.BackColor = Color.FromArgb(102, 102, 153);
+                    ctrl[3] = n2 + 30;
+                }
+                if (button.Name.Contains((n2 + 40).ToString()))
+                {
+                    button.BackColor = Color.FromArgb(102, 102, 153);
+                    ctrl[4] = n2 + 40;
                 }
             }
-        }
-        private void locateNavi(int[,] x)
-        {
-            Random rnd = new Random();
-            int i = 0, j = 0, cnt=0;
-            do
+            int n1 = random.Next(10, 96);
+            if ((n1.ToString().Contains("9") || n1.ToString().Contains("8") || n1.ToString().Contains("7")) || thereIS(n1, ctrl))
             {
-                i = rnd.Next(0, campo);
-                j = rnd.Next(0, campo);
-                if (x[i, j] == 0)
-                {
-                    m[i, j] = 1;
-                    cnt++;
-                }      
-            } while (cnt!=navi1);
-            cnt = 0;
-            do
+                n1 = 94;
+                if (thereIS(n1, ctrl)) n1 = 93;
+            }
+            foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("User")))
             {
-                i = rnd.Next(0, campo-2);
-                j = rnd.Next(0, campo);
-                if (x[i, j] == 0 && x[i+1, j]==0 && x[i+2,j]==0)
+                if (button.Name.Contains(n1.ToString()))
                 {
-                    m[i, j] = 1;
-                    m[i+1, j] = 1;
-                    m[i+2, j] = 1;
-                    cnt++;
+                    button.BackColor = Color.FromArgb(179, 179, 204);
+                    ctrl[5] = n1;
                 }
-            } while (cnt != navi3);
-            cnt = 0;
-            do
-            {
-                i = rnd.Next(0, campo);
-                j = rnd.Next(0, campo-4);
-                if (x[i, j] == 0 && x[i, j+1] == 0 && x[i, j+2] == 0 && x[i, j+3] == 0 && x[i, j + 4] == 0)
+                if (button.Name.Contains((n1 + 1).ToString()))
                 {
-                    m[i, j] = 1;
-                    m[i, j + 1] = 1;
-                    m[i, j + 2] = 1;
-                    m[i, j + 3] = 1;
-                    m[i, j + 4] = 1;
-                    cnt++;
+                    button.BackColor = Color.FromArgb(179, 179, 204);
+                    ctrl[6] = n1 + 1;
                 }
-            } while (cnt != navi5);
+                if (button.Name.Contains((n1 + 2).ToString()))
+                {
+                    button.BackColor = Color.FromArgb(179, 179, 204);
+                    ctrl[7] = n1 + 2;
+                }
+            }
+            int n = random.Next(10, 99);
+            do n = random.Next(10, 99); while (thereIS(n, ctrl));
+            foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("User")))
+                if (button.Name.Contains(n.ToString())) button.BackColor = Color.FromArgb(224, 224, 235);
         }
     }
 }
