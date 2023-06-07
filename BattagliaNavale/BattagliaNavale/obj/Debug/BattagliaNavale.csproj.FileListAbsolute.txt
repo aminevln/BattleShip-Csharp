@@ -1,0 +1,11 @@
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\bin\Debug\BattagliaNavale.exe.config
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\bin\Debug\BattagliaNavale.exe
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\bin\Debug\BattagliaNavale.pdb
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.csproj.AssemblyReference.cache
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.csproj.SuggestedBindingRedirects.cache
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.Form1.resources
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.Properties.Resources.resources
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.csproj.GenerateResource.cache
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.csproj.CoreCompileInputs.cache
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.exe
+C:\Users\amine\Source\Repos\BattleShip-Csharp\BattagliaNavale\BattagliaNavale\obj\Debug\BattagliaNavale.pdb

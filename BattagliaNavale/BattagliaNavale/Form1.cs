@@ -192,7 +192,7 @@ namespace BattagliaNavale {
                         btn.BackColor = Color.FromArgb(255, 255, 204);
                         lbl1.Text = "User Boats = " + cntUsr;
                     }
-                    else btn.BackColor = Color.FromArgb(32, 32, 32);
+                    else btn.BackColor = Color.FromArgb(32,32,32);
             }
             if (cntPC == 0) MessageBox.Show("HAI VINTO");
             else if (cntUsr == 0) MessageBox.Show("HAI PERSO");
