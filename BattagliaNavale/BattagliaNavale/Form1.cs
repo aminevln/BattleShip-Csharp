@@ -84,5 +84,42 @@ namespace BattagliaNavale {
             foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("User")))
                 if (button.Name.Contains(n.ToString())) button.BackColor = Color.FromArgb(224, 224, 235);
         }
+        private void setPCBoats()
+        {
+            foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("PC"))) button.BackColor = Color.FromArgb(62, 62, 62);
+
+            int n2 = random.Next(10, 59);
+            foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("PC")))
+            {
+                if (button.Name.Contains(n2.ToString()))
+                    ctrpc[0] = n2;
+                if (button.Name.Contains((n2 + 10).ToString()))
+                    ctrpc[1] = n2 + 10;
+                if (button.Name.Contains((n2 + 20).ToString()))
+                    ctrpc[2] = n2 + 20;
+                if (button.Name.Contains((n2 + 30).ToString()))
+                    ctrpc[3] = n2 + 30;
+                if (button.Name.Contains((n2 + 40).ToString()))
+                    ctrpc[4] = n2 + 40;
+            }
+            int n1 = random.Next(10, 96);
+            if ((n1.ToString().Contains("9") || n1.ToString().Contains("8") || n1.ToString().Contains("7")) || thereIS(n1, ctrpc))
+            {
+                n1 = 94;
+                if (thereIS(n1, ctrpc)) n1 = 93;
+            }
+            foreach (var button in Controls.OfType<Button>().Where(b => b.Name.Contains("PC")))
+            {
+                if (button.Name.Contains(n1.ToString()))
+                    ctrpc[5] = n1;
+                if (button.Name.Contains((n1 + 1).ToString()))
+                    ctrpc[6] = n1 + 1;
+                if (button.Name.Contains((n1 + 2).ToString()))
+                    ctrpc[7] = n1 + 2;
+            }
+            int n = random.Next(10, 99);
+            do n = random.Next(10, 99); while (thereIS(n, ctrpc));
+            ctrpc[8] = n;
+        }
     }
 }
